@@ -1,101 +1,19 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Prisma Magnus — AI Sales Demo</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Prisma Magnus AI — Voice Demo</title>
 <style>
-:root{--ink:#182230;--muted:#667085;--line:#e6eaf0;--bg:#f5f7fb;--navy:#14263d;--blue:#356ae6;--green:#168568;--amber:#b7791f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.app{display:grid;grid-template-columns:225px 1fr;min-height:100vh}.sidebar{background:var(--navy);color:#e8eef7;padding:25px 16px}.brand{font-weight:800;font-size:20px;letter-spacing:-.5px;margin:0 10px 5px}.subbrand{color:#9fb0c7;font-size:11px;margin:0 10px 30px}.navlabel{color:#8ea2bd;text-transform:uppercase;letter-spacing:1.2px;font-size:10px;margin:22px 10px 8px}.nav{padding:10px 12px;border-radius:9px;color:#c6d1df;margin:3px 0}.nav.active{background:#29415f;color:white;font-weight:650}.nav span{display:inline-block;width:24px}.sidebar-bottom{margin-top:50px;border-top:1px solid #31455f;padding:18px 10px;color:#9fb0c7;font-size:11px}
-main{min-width:0}.topbar{height:76px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px}.crumb{color:var(--muted);font-size:12px}.topright{display:flex;align-items:center;gap:14px}.pill{border-radius:30px;padding:6px 10px;background:#eef8f4;color:var(--green);font-size:11px;font-weight:700}.avatar{width:34px;height:34px;border-radius:50%;background:#dce7ff;color:#2b54b8;display:grid;place-items:center;font-weight:800}
-.content{padding:28px 30px 40px;max-width:1450px;margin:auto}.heading{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:22px}.eyebrow{color:var(--blue);font-size:11px;text-transform:uppercase;letter-spacing:1.3px;font-weight:800}.heading h1{margin:5px 0 6px;font-size:27px;letter-spacing:-.8px}.heading p{margin:0;color:var(--muted)}button{border:0;border-radius:9px;padding:11px 14px;font:inherit;font-weight:700;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:white;border:1px solid var(--line);color:var(--ink)}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}.card,.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:18px}.metric-label{color:var(--muted);font-size:12px}.metric{font-size:28px;font-weight:800;letter-spacing:-1px;margin:7px 0}.trend{font-size:11px;color:var(--green)}.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);gap:16px}.panel{margin-bottom:16px}.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;gap:10px}.panel h2{font-size:15px;margin:0}.tiny{font-size:11px;color:var(--muted)}.lead-row{display:grid;grid-template-columns:1.25fr 1fr .85fr .75fr;gap:10px;align-items:center;border-top:1px solid #edf0f5;padding:13px 0}.lead-row.header{border:0;padding:0 0 8px;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.7px}.lead-name{font-weight:750}.lead-meta{color:var(--muted);font-size:11px}.tag{display:inline-block;border-radius:30px;padding:5px 8px;font-size:10px;font-weight:750;background:#eef3ff;color:#315fc9}.tag.green{background:#eaf8f1;color:#147c5d}.tag.amber{background:#fff4df;color:#9a6412}.agent{display:flex;gap:13px;align-items:center}.orb{width:46px;height:46px;border-radius:14px;background:#e9efff;display:grid;place-items:center;font-size:22px}.agent strong{display:block}.agent small{color:var(--muted)}.callbox{background:#f7f9fd;border:1px solid var(--line);border-radius:11px;padding:13px;margin:14px 0}.calltop{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.wave{height:24px;display:flex;align-items:center;gap:3px}.wave i{display:block;width:4px;border-radius:5px;background:#6d8ff0;height:7px}.wave i:nth-child(3n){height:18px}.wave i:nth-child(4n){height:12px}.wave i:nth-child(5n){height:22px}.transcript{font-size:12px;color:#475467;margin:8px 0}.transcript b{color:var(--ink)}.prop{border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:10px}.prop-top{display:flex;justify-content:space-between;gap:8px}.prop strong{font-size:13px}.prop p{font-size:11px;color:var(--muted);margin:5px 0}.prop-bottom{display:flex;justify-content:space-between;align-items:center;font-size:11px}.price{font-size:16px;font-weight:800}.bookform{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field label{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.field input,.field select{width:100%;border:1px solid #dce2eb;background:white;border-radius:8px;padding:10px;font:inherit;color:var(--ink)}.field.full{grid-column:1/-1}.notice{background:#fff8e8;border:1px solid #f3dfb1;border-radius:10px;padding:11px;color:#805b15;font-size:11px;margin-top:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.toast{position:fixed;bottom:22px;right:22px;background:#15283f;color:white;padding:13px 17px;border-radius:10px;box-shadow:0 10px 35px #13233a33;display:none;max-width:340px}.footnote{color:var(--muted);font-size:11px;margin-top:10px}
-@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{display:none}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:1fr}.topbar{padding:0 17px}.content{padding:22px 16px}.heading{flex-direction:column}.lead-row{grid-template-columns:1.2fr 1fr .8fr}.lead-row>*:last-child{display:none}}
-@media(max-width:500px){.cards{gap:8px}.card{padding:13px}.metric{font-size:23px}.lead-row{grid-template-columns:1fr .8fr}.lead-row>*:nth-child(2),.lead-row>*:last-child{display:none}.bookform{grid-template-columns:1fr}.field.full{grid-column:auto}.heading h1{font-size:23px}}
-</style>
-</head>
-<body>
-<div class="app">
-<aside class="sidebar">
-  <div class="brand">Prisma Magnus AI<span style="color:#80a3ff">.</span></div><div class="subbrand">REAL ESTATE AI SALES DEMO</div>
-  <div class="navlabel">Workspace</div>
-  <div class="nav active"><span>▦</span>Overview</div><div class="nav"><span>◉</span>Leads & Follow-ups</div><div class="nav"><span>☎</span>AI Voice Agent</div><div class="nav"><span>▣</span>Site Visits</div><div class="nav"><span>⌂</span>Property Inventory</div>
-  <div class="navlabel">Manage</div><div class="nav"><span>⇄</span>CRM Integrations</div><div class="nav"><span>▤</span>Reports</div><div class="sidebar-bottom">PRISMA MAGNUS DEMO<br><b style="color:#e8eef7">Prisma Magnus</b><br><br>Sample data · Not connected to live systems</div>
-</aside>
-<main>
-<header class="topbar"><div><b>Prisma Magnus</b><div class="crumb">Workspace / Overview</div></div><div class="topright"><span class="pill">● Demo mode</span><div class="avatar">NR</div></div></header>
-<div class="content">
-<div class="heading"><div><div class="eyebrow">AI-powered sales desk</div><h1>Good afternoon, Sales Team</h1><p>See how Prisma Magnus AI responds to leads, recommends inventory and books site visits.</p></div><button class="primary" onclick="runDemo()">▶ Run demo flow</button></div>
-<div class="cards">
- <div class="card"><div class="metric-label">New leads today</div><div class="metric">48</div><div class="trend">↑ 12% vs. previous day</div></div>
- <div class="card"><div class="metric-label">AI contacted</div><div class="metric">41</div><div class="trend">85% of new leads</div></div>
- <div class="card"><div class="metric-label">Site visits booked</div><div class="metric">12</div><div class="trend">↑ 4 this week</div></div>
- <div class="card"><div class="metric-label">Needs sales rep</div><div class="metric">7</div><div class="trend" style="color:var(--amber)">Priority handover</div></div>
-</div>
-<div class="layout">
-<section>
- <div class="panel">
-  <div class="panel-head"><h2>Recent leads</h2><span class="tiny">Sample records · updated just now</span></div>
-  <div class="lead-row header"><div>Lead</div><div>Requirement</div><div>Status</div><div>Source</div></div>
-  <div class="lead-row"><div><div class="lead-name">Priya Sharma</div><div class="lead-meta">10:42 AM · +91 98••• 1234</div></div><div>3 BHK · ₹90L–₹1.1Cr</div><div><span class="tag green">Visit booked</span></div><div class="lead-meta">Meta Ads</div></div>
-  <div class="lead-row"><div><div class="lead-name">Rahul Mehta</div><div class="lead-meta">10:36 AM · +91 97••• 4567</div></div><div>2 BHK · ₹55L–₹70L</div><div><span class="tag">Qualified</span></div><div class="lead-meta">Website</div></div>
-  <div class="lead-row"><div><div class="lead-name">Simran Kaur</div><div class="lead-meta">10:20 AM · +91 99••• 7788</div></div><div>Plot · ₹35L–₹45L</div><div><span class="tag amber">Rep follow-up</span></div><div class="lead-meta">Property portal</div></div>
-  <div class="footnote">All names, numbers and performance metrics are fictional demo data.</div>
- </div>
- <div class="panel">
-  <div class="panel-head"><h2>Lead journey</h2><span class="tag green" id="journeyTag">Ready to run</span></div>
-  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:7px;text-align:center">
-   <div><div class="orb" style="margin:auto">＋</div><div style="font-size:11px;font-weight:700;margin-top:7px">New lead</div><div class="tiny">Ads / website</div></div>
-   <div><div class="orb" style="margin:auto">☎</div><div style="font-size:11px;font-weight:700;margin-top:7px">AI call</div><div class="tiny">Qualify</div></div>
-   <div><div class="orb" style="margin:auto">⌂</div><div style="font-size:11px;font-weight:700;margin-top:7px">Match</div><div class="tiny">Inventory</div></div>
-   <div><div class="orb" style="margin:auto">▣</div><div style="font-size:11px;font-weight:700;margin-top:7px">Book visit</div><div class="tiny">Calendar</div></div>
-   <div><div class="orb" style="margin:auto">⇄</div><div style="font-size:11px;font-weight:700;margin-top:7px">CRM sync</div><div class="tiny">Sales handover</div></div>
-  </div>
-  <div class="actions"><button class="secondary" onclick="resetDemo()">Reset flow</button><span class="tiny" style="align-self:center">Click “Run demo flow” to simulate a new lead.</span></div>
- </div>
-</section>
-<aside>
- <div class="panel">
-  <div class="panel-head"><h2>AI Voice Agent</h2><span class="pill">Ready</span></div>
-  <div class="agent"><div class="orb">🎙</div><div><strong>Prisma Magnus AI Assistant</strong><small>English · Hindi · Hinglish (planned)</small></div></div>
-  <div class="callbox">
-   <div class="calltop"><b id="callTitle">Sample call preview</b><span class="tiny" id="callTime">00:00</span></div>
-   <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-   <div class="transcript" id="transcript"><b>AI:</b> Hello Priya, you enquired about a home with us. Is now a good time for a quick conversation?</div>
-   <div class="transcript"><b>Lead:</b> Yes, I'm looking for a 3 BHK around ₹1 crore.</div>
-   <div class="transcript"><b>AI:</b> I have an option that may fit. Would you like to visit this weekend?</div>
-  </div>
-  <div class="tiny">Demo only: no real call is placed. Production calling requires approved telephony, consent and applicable compliance checks.</div>
- </div>
- <div class="panel">
-  <div class="panel-head"><h2>Recommended property</h2><span class="tag green">Best match</span></div>
-  <div class="prop"><div class="prop-top"><strong>Prisma Magnus Residences · Tower B</strong><span class="tag">3 BHK</span></div><p>Sample inventory · 1,480 sq. ft. · Possession: 2027</p><div class="prop-bottom"><span class="price">₹98 lakh</span><span>₹6,622 / sq. ft.</span></div></div>
-  <div class="footnote">Recommendations must use the builder's verified, up-to-date inventory and pricing.</div>
- </div>
- <div class="panel">
-  <div class="panel-head"><h2>Book a site visit</h2><span class="tiny">Interactive demo</span></div>
-  <div class="bookform">
-   <div class="field full"><label>Lead name</label><input id="leadName" value="Priya Sharma"></div>
-   <div class="field"><label>Date</label><input id="visitDate" type="date"></div>
-   <div class="field"><label>Time slot</label><select id="visitTime"><option>11:00 AM</option><option>12:30 PM</option><option>3:00 PM</option><option>4:30 PM</option></select></div>
-  </div>
-  <div class="actions"><button class="primary" onclick="bookVisit()">Confirm demo booking</button><button class="secondary" onclick="sendWhatsApp()">Preview WhatsApp</button></div>
-  <div class="notice" id="bookingNote">No appointment has been booked. This demo does not send real messages or write to a CRM.</div>
- </div>
-</aside>
-</div>
-<div class="footnote">Prototype concept only · Illustrative metrics, property data and workflows · Not connected to phone, WhatsApp, calendar or CRM services.</div>
-</div>
-</main>
-</div>
-<div class="toast" id="toast" role="status"></div>
+:root{--bg:#0b1220;--panel:#111c30;--line:#2b3b54;--text:#edf3ff;--muted:#a7b6cc;--accent:#77e0c3}*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#0b1220,#111b2c 60%,#15162d);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1000px;margin:auto;padding:22px 16px 44px}.top{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:.04em}.pill{border:1px solid #35685e;color:var(--accent);padding:5px 10px;border-radius:999px;font-size:12px}h1{font-size:clamp(28px,5vw,42px);line-height:1.1;margin:26px 0 10px}p{color:var(--muted);margin:8px 0 0}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:24px}.card{background:rgba(17,28,48,.94);border:1px solid var(--line);border-radius:18px;padding:18px;min-width:0}.card h2{font-size:18px;margin:0 0 12px}.label{display:block;color:#d9e5f8;font-size:13px;margin:14px 0 6px}textarea,select{width:100%;background:#0b1425;color:var(--text);border:1px solid #3a4b65;border-radius:10px;padding:12px;font:inherit}textarea{min-height:110px;resize:vertical}button{min-height:44px;border:0;border-radius:11px;padding:11px 15px;font-weight:700;cursor:pointer;background:var(--accent);color:#08221c}button.secondary{background:#273852;color:var(--text);border:1px solid #41536e}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.status{margin-top:12px;padding:10px 12px;background:#0b1425;border:1px solid var(--line);border-radius:10px;color:#dce7f8;font-size:14px}.status strong{color:var(--accent)}.statrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.stat{background:#16243b;padding:12px;border-radius:12px;border:1px solid var(--line)}.stat b{display:block;font-size:18px}.stat span,.mini{font-size:12px;color:var(--muted)}.script{white-space:pre-wrap;background:#0b1425;border:1px solid var(--line);padding:14px;border-radius:12px;min-height:105px;color:#dce7f8}.note{border-left:3px solid #ffd28a;padding:10px 12px;background:#2a241b;color:#ffe5b8;border-radius:0 9px 9px 0;font-size:13px;margin-top:14px}.ok{color:var(--accent)}footer{margin-top:20px;color:var(--muted);font-size:12px}@media(max-width:700px){.grid{grid-template-columns:1fr}main{padding:16px 12px 32px}}
+</style></head><body><main>
+<div class="top"><div class="brand">PRISMA <span style="color:var(--accent)">MAGNUS</span> AI</div><span class="pill">VOICE AGENT · DEMO</span></div>
+<h1>AI Voice Agent</h1><p>Run the demo to simulate a property lead and hear a sample response in the likely language. This uses browser speech synthesis where available.</p>
+<div class="statrow"><div class="stat"><b>Auto</b><span>Text language detection</span></div><div class="stat"><b>Hindi · English</b><span>Plus Hinglish-style replies</span></div><div class="stat"><b>Demo</b><span>No live calls or CRM</span></div></div>
+<div class="grid"><section class="card"><h2>01 / Run demo flow</h2><label class="label" for="customerText">Sample customer message</label><textarea id="customerText">मुझे मोहाली में 2 BHK चाहिए, budget 70 lakh है।</textarea><label class="label" for="mode">Response language</label><select id="mode"><option value="auto" selected>Auto-detect customer language</option><option value="hi">Hindi</option><option value="en">English</option><option value="hinglish">Hinglish</option></select><div class="actions"><button id="runBtn">▶ Run demo flow + speak</button><button id="speakBtn" class="secondary">Speak reply again</button><button id="stopBtn" class="secondary">Stop audio</button></div><div id="status" class="status" aria-live="polite">Status: <strong>Ready</strong></div><p class="mini">If you hear nothing on iPhone, turn up media volume and check the audio output route.</p></section>
+<section class="card"><h2>02 / Agent response</h2><div class="label">Detected language</div><div id="detected" class="status"><strong>Hinglish</strong></div><div class="label">Spoken response</div><div id="reply" class="script">नमस्ते! मैं Prisma Magnus AI से बोल रहा हूँ। आपको किस location में property चाहिए और आपका budget कितना है?</div><div class="note"><b>Prototype limitation:</b> This speaks a sample reply generated in this page. It does not listen to live customer speech, place phone calls, send WhatsApp messages, or connect to a CRM.</div></section></div>
+<section class="card" style="margin-top:16px"><h2>03 / Current connection status</h2><p><span class="ok">✓</span> Demo flow button · <span class="ok">✓</span> Language guess from typed text · <span class="ok">✓</span> Browser text-to-speech when supported</p><p>Real voice calls will need a secure backend, speech recognition, an AI response service, telephony integration and required customer consent/compliance.</p></section><footer>Prisma Magnus AI · Voice demo prototype · No customer data is sent to a server by this page.</footer></main>
 <script>
-const toast=(s)=>{let t=document.getElementById('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',3500)};
-function runDemo(){document.getElementById('journeyTag').textContent='Flow simulated';document.getElementById('callTitle').textContent='Simulated outbound call';document.getElementById('callTime').textContent='00:18';document.getElementById('transcript').innerHTML='<b>AI:</b> Hi Priya, I am calling about your property enquiry. May I ask your budget and preferred configuration?';document.getElementById('bookingNote').textContent='Lead qualified in demo: 3 BHK · budget ₹90L–₹1.1Cr · preferred visit this weekend.';toast('Demo flow simulated: lead → AI qualification → property match → visit booking → CRM update. No external actions were taken.')}
-function resetDemo(){document.getElementById('journeyTag').textContent='Ready to run';document.getElementById('callTitle').textContent='Sample call preview';document.getElementById('callTime').textContent='00:00';document.getElementById('transcript').innerHTML='<b>AI:</b> Hello Priya, you enquired about a home with us. Is now a good time for a quick conversation?';document.getElementById('bookingNote').textContent='No appointment has been booked. This demo does not send real messages or write to a CRM.';toast('Demo reset.')}
-function bookVisit(){const n=document.getElementById('leadName').value.trim()||'Guest';const d=document.getElementById('visitDate').value;const tm=document.getElementById('visitTime').value;if(!d){toast('Please choose a date for the demo booking.');return}document.getElementById('bookingNote').textContent='Demo booking preview: '+n+' · '+d+' · '+tm+'. Not saved to a real calendar.';toast('Demo appointment preview created for '+n+'. No real booking was made.')}
-function sendWhatsApp(){const n=document.getElementById('leadName').value.trim()||'there';toast('WhatsApp preview: Hi '+n+', thanks for your interest. Your selected property and visit details will appear here. Nothing sent.')}
-const dt=new Date();dt.setDate(dt.getDate()+1);document.getElementById('visitDate').value=dt.toISOString().slice(0,10);document.getElementById('visitDate').min=new Date().toISOString().slice(0,10);
-</script>
-</body>
-</html>
+(()=>{const $=id=>document.getElementById(id),input=$('customerText'),mode=$('mode'),reply=$('reply'),detected=$('detected'),status=$('status');
+function detect(t){const hi=(t.match(/[ऀ-ॿ]/g)||[]).length,lat=(t.match(/[A-Za-z]/g)||[]).length,words=/\b(budget|location|property|flat|bhk|lakh|crore|site visit|booking|mohali|gurgaon|noida)\b/i.test(t);if(hi&&lat)return'hinglish';if(hi)return'hi';if(words)return'hinglish';if(lat)return'en';return'hi'}
+function response(lang){if(lang==='hi')return'नमस्ते! मैं Prisma Magnus AI से बोल रहा हूँ। मैं आपकी property search में मदद कर सकता हूँ। आप किस location में property चाहते हैं और आपका budget कितना है?';if(lang==='en')return'Hello! I’m the Prisma Magnus AI property assistant. I can help you find a suitable property. Which location are you considering, and what is your budget?';return'Hi! मैं Prisma Magnus AI से बोल रहा हूँ। आपकी property search में help करता हूँ। Which location पसंद है, और आपका budget कितना है?'}
+function update(){const l=mode.value==='auto'?detect(input.value):mode.value,labels={hi:'Hindi',en:'English',hinglish:'Hinglish'};detected.innerHTML='<strong>'+labels[l]+'</strong> · '+(mode.value==='auto'?'auto-detected from text':'selected manually');reply.textContent=response(l);return l}
+function speak(){const l=update();if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){status.textContent='Speech playback is not supported in this browser. Try Safari or Chrome.';return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(reply.textContent);u.lang=l==='en'?'en-IN':'hi-IN';u.rate=.94;const voices=window.speechSynthesis.getVoices();const v=voices.find(x=>x.lang.toLowerCase().startsWith(u.lang.toLowerCase()));if(v)u.voice=v;u.onstart=()=>status.innerHTML='Status: <strong>Speaking</strong> · '+(v?v.name:u.lang);u.onend=()=>status.innerHTML='Status: <strong>Playback finished</strong>';u.onerror=()=>status.textContent='Audio could not play. Check volume and browser support.';window.speechSynthesis.speak(u)}
+$('runBtn').addEventListener('click',()=>{update();status.innerHTML='Status: <strong>Demo flow running</strong>';speak()});$('speakBtn').addEventListener('click',speak);$('stopBtn').addEventListener('click',()=>{if('speechSynthesis'in window)window.speechSynthesis.cancel();status.innerHTML='Status: <strong>Audio stopped</strong>'});input.addEventListener('input',update);mode.addEventListener('change',update);update();})();
+</script></body></html>
